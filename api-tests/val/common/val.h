@@ -1,5 +1,5 @@
 /** @file
- * Copyright (c) 2018-2020, Arm Limited or its affiliates. All rights reserved.
+ * Copyright (c) 2018-2021, Arm Limited or its affiliates. All rights reserved.
  * SPDX-License-Identifier : Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -160,6 +160,7 @@
         {                                                                           \
             val->print(PRINT_ERROR, "\tFailed at Checkpoint: %d : ", checkpoint);   \
             val->print(PRINT_ERROR, "Unequal data in compared buffers\n", 0);       \
+            TEST_ASSERT_MEMDUMP(buf1, size);                                         \
             return 1;                                                               \
         }                                                                           \
     } while (0)
@@ -175,6 +176,17 @@
             return 1;                                                               \
         }                                                                           \
     } while (0)
+
+#define TEST_ASSERT_MEMDUMP(buf, size)                                             \
+    do {                                                                           \
+            uint32_t idx = 0;                                                         \
+            val->print(PRINT_ERROR, "\n MEMORY_DUMP : ", 1);                       \
+            for (; idx < size; idx++)                                                   \
+              val->print(PRINT_TEST, " %x", buf[idx]);                             \
+            return 1;                                                              \
+    } while (0)
+
+
 
 /* enums */
 typedef enum {

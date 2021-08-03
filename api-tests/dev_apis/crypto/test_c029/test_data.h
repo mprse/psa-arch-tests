@@ -66,7 +66,7 @@ static const test_data check1[] = {
     .alg             = PSA_ALG_CMAC,
     .data            = key_data,
     .data_length     = AES_16B_KEY_SIZE,
-    .expected_status = PSA_ERROR_NOT_SUPPORTED
+    .expected_status = PSA_ERROR_INVALID_ARGUMENT
 },
 #endif
 #endif
@@ -76,7 +76,7 @@ static const test_data check1[] = {
 {
     .test_desc       = "Test psa_mac_verify_setup - Invalid usage flag\n",
     .type            = PSA_KEY_TYPE_HMAC,
-    .usage_flags     = PSA_KEY_USAGE_VERIFY_MESSAGE,
+    .usage_flags     = PSA_KEY_USAGE_SIGN_MESSAGE,
     .alg             = PSA_ALG_HMAC(PSA_ALG_SHA_256),
     .data            = key_data,
     .data_length     = 64,

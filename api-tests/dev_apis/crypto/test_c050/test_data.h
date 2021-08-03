@@ -52,7 +52,7 @@ static const test_data check1[] = {
     .signature_size            = BUFFER_SIZE,
     .expected_signature        = signature_4,
     .expected_signature_length = 128,
-    .expected_status           = PSA_SUCCESS,
+    .expected_status           = PSA_ERROR_INVALID_ARGUMENT,
 },
 #endif
 
