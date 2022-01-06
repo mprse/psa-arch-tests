@@ -169,7 +169,7 @@ static const test_data check1[] = {
 #ifdef ARCH_TEST_CCM
 #ifdef ARCH_TEST_AES_128
 {
-    .test_desc                  = "Test psa_aead_encrypt - Unsupported algorithm\n",
+    .test_desc                  = "Test psa_aead_encrypt - Non-AEAD algorithm\n",
     .type                       = PSA_KEY_TYPE_AES,
     .data                       = key_data,
     .data_length                = AES_16B_KEY_SIZE,
@@ -185,7 +185,7 @@ static const test_data check1[] = {
     .expected_ciphertext        = NULL,
     .ciphertext_size            = 0,
     .expected_ciphertext_length = 0,
-    .expected_status            = PSA_ERROR_NOT_SUPPORTED
+    .expected_status            = PSA_ERROR_INVALID_ARGUMENT
 },
 
 {
